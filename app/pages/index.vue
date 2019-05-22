@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         My stellar Nuxt.js project
       </h2>
+      <Repositories />
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green"
           >Documentation</a
@@ -25,10 +26,12 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Repositories from '~/components/Repositories'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Repositories
   }
 }
 </script>

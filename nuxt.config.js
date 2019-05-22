@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   srcDir: 'app',
@@ -33,15 +35,25 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
-  ],
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/apollo'],
   /*
    ** Axios module configuration
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  // See https://github.com/nuxt-community/apollo-module
+  apollo: {
+    tokenExpires: 10,
+    includeNodeModules: true,
+    errorHandler: '~/plugins/apollo-error-handler.js',
+    clientConfigs: {
+      default: '~/plugins/apollo-config.js'
+    }
+  },
+
+  env: {
+    GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_PERSONAL_ACCESS_TOKEN
   },
 
   /*
