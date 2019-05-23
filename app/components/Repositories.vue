@@ -37,9 +37,7 @@ export default {
           }
         }
       `,
-      update(data) {
-        return data.organization.repositories.nodes
-      }
+      update: ({ organization }) => organization.repositories.nodes
     }
   }
 }
